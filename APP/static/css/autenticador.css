@@ -1,0 +1,154 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+}
+
+* {
+    font-family: "Poppins", sans-serif !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+#logo {
+    display: flex;
+    width: 100px;
+    padding: 0;
+    cursor: pointer;
+    margin: 3% auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: auto 15%;
+}
+
+#cont_botones {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    margin: auto;
+}
+
+.boton_reg {
+    padding: 8px 16px;
+    border: none;
+    max-width: 150px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#login-button {
+    background-color: #2ecc71;
+}
+
+.boton_reg:hover {
+    cursor: pointer;
+    transition: all 0.5s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
+}
+
+#principal {
+    background-color: white;
+    border-radius: 30px;
+    padding: 0;
+    margin: 3% auto;
+    border: 2px solid #2ecc71;
+    display: flex;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 5%;
+}
+
+.libros {
+    width: 250px;
+    height: 100%;
+}
+
+#libro1 {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#libro2 {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.paneles {
+    margin: 0;
+    align-items: center;
+    padding: 0;
+    display: flex;
+}
+
+.texto {
+    padding: 5%;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto h3, .texto p {
+    text-align: center;
+}
+
+.texto p {
+    font-size: smaller;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputLabel {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputLabel label {
+    font-weight: normal;
+    font-size: smaller;
+    color: var(--text-color);
+}
+
+.inputLabel input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.inputLabel input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.formulario button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario button:hover {
+    background-color: #2980b9;
+}
