@@ -1,6 +1,6 @@
 import flask_login
 from flask import Flask, url_for, redirect, render_template, session, jsonify, flash
-from routes import autenticador
+from routes import registro, inicioSesion, inicio
 import _mysql_connector
 
 app = Flask(__name__)
@@ -19,9 +19,17 @@ def conexion_db():
 def index():
     return render_template('index.html')
 
-@app.route('/autenticador')
-def autenticador_ruta():
-    return autenticador.autenticador()
+@app.route('/register')
+def registro_ruta():
+    return registro.registro()
+
+@app.route('/login')
+def inicioSesion_ruta():
+    return inicioSesion.inicioSesion()
+
+@app.route('/home')
+def inicio_ruta():
+    return inicio.inicio()
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000)

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BookShare - Auntenticación</title>
+        <link rel="stylesheet" href="../static/css/inicioSesion.css" />
+        <link
+            rel="icon"
+            href="./static/img/Isotipo 1 - Icono.ico"
+            type="image/x-icon"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header>
+            <img
+                onclick="window.location.href='/'"
+                src="../static/img/Isotipo 1 - Logo.png"
+                alt="BookShare"
+            />
+            <h2 onclick="window.location.href='/'">BookShare</h2>
+        </header>
+        <main>
+            <div id="formulario_container">
+                <div id="parte1">
+                    <h3>¡Bienvenido de nuevo a BookShare!</h3>
+                    <p>¡Nos alegra verte una vez más!</p>
+                    <form
+                        action="formulario_login"
+                        method="post"
+                        class="formulario"
+                        id="formulario_login"
+                        autocomplete="off"
+                    >
+                        <div class="inputLabel">
+                            <label for="correo_login">
+                                Correo Electrónico
+                            </label>
+                            <input name="correo_login" type="email" required />
+                        </div>
+                        <div class="inputLabel">
+                            <label for="contrasena_login"> Contraseña </label>
+                            <input
+                                name="contrasena_login"
+                                type="password"
+                                required
+                            />
+                            <a id="sinContrasena" href=""
+                                >¿Olvidaste tu contraseña?</a
+                            >
+                        </div>
+                        <button type="submit">Iniciar sesión</button>
+                        <p id="sinCuenta">¿No tienes una cuenta?</p>
+                        <button
+                            type="button"
+                            id="bttn_registro"
+                            onclick="window.location.href = '/register'"
+                        >
+                            Registrarme
+                        </button>
+                    </form>
+                </div>
+                <div id="imagenEmojis">
+                    <h3>¡Comparte y descubre!</h3>
+                    <img
+                        src="../static/img/Emojis.png"
+                        alt="Emojis"
+                        width="260px"
+                    />
+                </div>
+            </div>
+        </main>
+        <script
+            src="https://kit.fontawesome.com/0b856504cf.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="../static/js/autenticador.js"></script>
+    </body>
+</html>
