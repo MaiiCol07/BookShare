@@ -1,14 +1,14 @@
 import flask_login
 from flask import Flask, url_for, redirect, render_template, session, jsonify, flash
 from routes import registro, inicioSesion, inicio
-import _mysql_connector
+import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = 'secret_key'
 
 def conexion_db():
     global mydb, cursor
-    mydb = _mysql_connector.connect(
+    mydb = mysql.connector.connect(
         host = '127.0.0.1',
         user = 'root',
         database = 'bookshare'
@@ -26,6 +26,10 @@ def registro_ruta():
 @app.route('/login')
 def inicioSesion_ruta():
     return inicioSesion.inicioSesion()
+
+@app.route('/logining')
+def inicioSesion_proceso():
+    return inicioSesion.inicioSesion_proceso()
 
 @app.route('/home')
 def inicio_ruta():

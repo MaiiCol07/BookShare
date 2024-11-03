@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BookShare - Auntenticación</title>
+        <title>BookShare - Inicio de sesión</title>
         <link rel="stylesheet" href="../static/css/inicioSesion.css" />
         <link
             rel="icon"
@@ -36,8 +36,8 @@
                     <h3>¡Bienvenido de nuevo a BookShare!</h3>
                     <p>¡Nos alegra verte una vez más!</p>
                     <form
-                        action="formulario_login"
-                        method="post"
+                        action="/logining"
+                        method="POST"
                         class="formulario"
                         id="formulario_login"
                         autocomplete="off"
@@ -55,19 +55,12 @@
                                 type="password"
                                 required
                             />
-                            <a id="sinContrasena" href=""
+                            <a id="sinContrasena" href="/recoveryPass"
                                 >¿Olvidaste tu contraseña?</a
                             >
                         </div>
                         <button type="submit">Iniciar sesión</button>
-                        <p id="sinCuenta">¿No tienes una cuenta?</p>
-                        <button
-                            type="button"
-                            id="bttn_registro"
-                            onclick="window.location.href = '/register'"
-                        >
-                            Registrarme
-                        </button>
+                        <a id="sinCuenta" href="/register">¿No tienes una cuenta?</a>
                     </form>
                 </div>
                 <div id="imagenEmojis">
@@ -75,7 +68,6 @@
                     <img
                         src="../static/img/Emojis.png"
                         alt="Emojis"
-                        width="260px"
                     />
                 </div>
             </div>
@@ -84,6 +76,5 @@
             src="https://kit.fontawesome.com/0b856504cf.js"
             crossorigin="anonymous"
         ></script>
-        <script src="../static/js/autenticador.js"></script>
     </body>
 </html>

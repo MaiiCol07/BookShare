@@ -5,70 +5,157 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>BookShare - Registro</title>
         <link rel="stylesheet" href="../static/css/registro.css" />
-        <link rel="icon" href="./static/img/Logo2.ico" type="image/x-icon">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="icon" href="./static/img/Logo2.ico" type="image/x-icon" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
             rel="stylesheet"
         />
     </head>
     <body>
+        <header>
+            <img
+                onclick="window.location.href='/'"
+                src="../static/img/Isotipo 1 - Logo.png"
+                alt="BookShare"
+            />
+            <h2 onclick="window.location.href='/'">BookShare</h2>
+        </header>
         <main>
-            <div class="texto" id="registro"">
-                <h3>Registro</h3>
-                <p>Rellena los campos para tu registro exitoso en BookShare</p>
-                <form
-                    action="registro.php"
-                    method="POST"
-                    class="formulario"
-                    id="formulario_register"
-                    autocomplete="off"
-                >
-                    <div class="inputLabel">
-                        <label for="pNombre_registro">Primer Nombre</label>
-                        <input name="pNombre_registro" type="text" required />
+            <div id="formulario_container">
+                <div class="emojis">
+                    <img
+                        src="../static/img/Corazon.png"
+                        alt="Corazon"
+                        id="emoji1"
+                    />
+                    <img
+                        src="../static/img/Libro 2.png"
+                        alt="Libro"
+                        id="emoji2"
+                    />
+                    <img
+                        src="../static/img/Carita Feliz.png"
+                        alt="Carita Feliz"
+                        id="emoji3"
+                    />
+                    <img
+                        src="../static/img/Libro 1.png"
+                        alt="Libro"
+                        id="emoji4"
+                    />
+                </div>
+                <div id="containerRegistro">
+                    <div id="encabezadoRegistro">
+                        <h3>Crear una cuenta nueva</h3>
                     </div>
-                    <div class="inputLabel">
-                        <label for="sNombre_registro"
-                            >Segundo Nombre <span>(Opcional)</span></label
-                        >
-                        <input name="sNombre_registro" type="text" />
-                    </div>
-                    <div class="inputLabel">
-                        <label for="pApellido_registro">Primer Apellido</label>
-                        <input name="pApellido_registro" type="text" required />
-                    </div>
-                    <div class="inputLabel">
-                        <label for="sApellido_registro">Segundo Apellido</label>
-                        <input name="sApellido_registro" type="text" required />
-                    </div>
-                    <div class="inputLabel">
-                        <label for="correo_registro">Correo</label>
-                        <input name="correo_registro" type="email" required />
-                    </div>
-                    <div class="inputLabel">
-                        <label for="contrasena_registro">Contraseña</label>
-                        <input
-                            name="contrasena_registro"
-                            type="password"
-                            required
-                        />
-                    </div>
-                    <div class="inputLabel">
-                        <label for="vContrasena_registro"
-                            >Verifica la Contraseña</label
-                        >
-                        <input
-                            name="vContrasena_registro"
-                            type="password"
-                            required
-                        />
-                    </div>
-                    <button type="submit">Registrarse</button>
-                </form>
+                    <form
+                        action="registro.php"
+                        method="POST"
+                        class="formulario"
+                        id="formulario_register"
+                        autocomplete="off"
+                    >
+                        <div class="inputLabel">
+                            <label for="pNombre_registro"
+                                >NOMBRE <span class="asterisco">*</span></label
+                            >
+                            <input
+                                name="nombre_registro"
+                                type="text"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div class="inputLabel">
+                            <label for="sApellido_registro"
+                                >APELLIDO
+                                <span class="asterisco">*</span></label
+                            >
+                            <input
+                                name="apellido_registro"
+                                type="text"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div class="inputLabel">
+                            <label for="correo_registro"
+                                >CORREO ELECTRÓNICO
+                                <span class="asterisco">*</span></label
+                            >
+                            <input
+                                name="correo_registro"
+                                type="email"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div class="inputLabel">
+                            <label for="contrasena_registro"
+                                >CONTRASEÑA
+                                <span class="asterisco">*</span></label
+                            >
+                            <input
+                                name="contrasena_registro"
+                                type="password"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div class="inputLabel">
+                            <label for="vContrasena_registro"
+                                >VERIFICA LA CONTRASEÑA
+                                <span class="asterisco">*</span></label
+                            >
+                            <input
+                                name="vContrasena_registro"
+                                type="password"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                        <button type="submit">Crear cuenta</button>
+                        <p id="privacidadAviso">
+                            Al registrarte, aceptas las Codiciones del Servicio
+                            y la Polítia de BookShare
+                        </p>
+                    </form>
+                    <a href="/login">¿Ya tienes una cuenta?</a>
+                </div>
+                <div class="emojis">
+                    <img
+                        src="../static/img/Cara Enamorada.png"
+                        alt="Carita Enamorada"
+                        id="emoji5"
+                    />
+                    <img
+                        src="../static/img/Libro 3.png"
+                        alt="Libro"
+                        id="emoji6"
+                    />
+                    <img
+                        src="../static/img/Carita Fascinada.png"
+                        alt="Carita Fascinada"
+                        id="emoji7"
+                    />
+                    <img
+                        src="../static/img/Corazon.png"
+                        alt="Corazon"
+                        id="emoji8"
+                    />
+                </div>
             </div>
         </main>
+        <script
+            src="https://kit.fontawesome.com/0b856504cf.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="../static/js/autenticador.js"></script>
     </body>
 </html>

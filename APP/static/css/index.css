@@ -2,53 +2,34 @@
 
 
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --accent-color: #e74c3c;
-    --text-color: #f4f4f4;
-    --background-color: #1a1818;
+    --primary-color: #3777FF;
+    --secondary-color: #FFBE86;
+    --third-color: #8691accb;
+    --four-color: #FFB5C2;
+    --text-color: #2a2a2a;
+    --background-color: #FFE9CE;
     --background-color-secundary: #2a2a2a;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-:root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --accent-color: #e74c3c;
-    --text-color: #f4f4f4;
-    --background-color: #1a1818;
-    --background-color-secundary: #2a2a2a;
+* {
+    font-family: "Poppins", sans-serif !important;
 }
 
 body {
-    font-family: "Poppins", sans-serif !important;
     margin: 0;
     padding: 0;
     color: var(--text-color);
-    background-image: url(../img/FondoInicioSesion.png);
-    background-repeat: no-repeat;
+    background-image: url('../img/Fondo\ de\ Nieve.jpg');
+    background-attachment: fixed;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.85); /* Color semitransparente encima de la imagen */
-    background-blend-mode: multiply; /* Combina el color con la imagen */
+    background-position: center;
+    --webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    min-height: 100%;
 }
 
 header {
-    background: var(--background-color-secundary);
-    padding: 1% 2%;
-}
-
-#div_principal {
-    container-type: inline-size;
-    container-name: main;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    background-color: var(--background-color-secundary);
-    padding: 10px;
+    padding: 1% 3%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,122 +41,144 @@ header {
     align-items: center;
 }
 
-#logo {
-    width: 40px;
+header #logo {
+    width: 30px;
     padding: 0;
-    margin: 0;
+    margin: 0 10px 0 0;
+    cursor: pointer;
 }
 
-nav ul {
-    list-style-type: none;
+header h2 {
+    cursor: pointer;
+    font-family: "Lobster", sans-serif !important;
+    margin: 0 0 0 10px;
     padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
+    text-shadow: var(--text-color) 2px 1px 0;
     color: var(--primary-color);
-    text-decoration: none;
 }
 
 .inicioSesion_btn {
     display: flex;
     padding: 8px 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     width: auto;
 }
 
 .login-button {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--background-color);
+    transition: all 0.5s;
 }
 
 .login-button:hover {
     background-color: var(--secondary-color);
+    color: var(--text-color);
     transition: all 0.5s;
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+main {
+    container-type: inline-size;
+    container-name: main;
+    margin: auto;
+    padding: 2% 7%;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    cursor: default;
 }
 
 .div_top {
-    background-color: var(--background-color-secundary);
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
+    color: var(--text-color);
+    padding: 60px 80px;
     border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: #3498db47 1px 1px 5px 2px;
     transition: all 0.5s;
 }
 
 .div_top h1 {
-    font-size: 600%;
-    color: #f4f4f4;
+    font-size: 500%;
+    color: var(--primary-color);
     font-weight: 700;
-    margin: 0px;
+    margin: 0;
     font-family: "Lobster", sans-serif !important;
+    text-shadow: var(--secondary-color) 3px 2px 0;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
 
-.hero p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 30px;
-}
-
-.features {
+.tarjetas {
     display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    grid-template-columns: repeat(3,1fr);
 }
 
-.feature-card {
-    background-color: var(--background-color-secundary);
+.tarjeta {
+    background-color: #8691accb;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s;
+    color: var(--text-color);
 }
 
-.feature-card:hover {
+.tarjeta:hover {
     transform: translateY(-1%);
-    box-shadow: #2ecc7047 1px 1px 5px 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.5s;
 }
 
-.feature-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
+.tarjeta svg {
+    color: var(--secondary-color);
+    margin: 15px 0 0 0;
 }
 
-.feature-card h3 {
-    font-size: 1.2rem;
+.tarjeta h3 {
+    font-size: 1rem;
     margin-bottom: 10px;
 }
 
 .cta-button {
     display: inline-block;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--background-color);
+    text-shadow: var(--secondary-color)  2px 1px 3px;
     text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 7px;
+    transition: all 0.5s ease;
 }
 
 .cta-button:hover {
     background-color: var(--secondary-color);
     transition: all 0.5s;
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
 }
+
+footer {
+    padding: 2% 0;
+    margin-top: 4%;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    width: 100%;
+}
+
+footer > * {
+    flex: 1;
+}
+
+footer a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
