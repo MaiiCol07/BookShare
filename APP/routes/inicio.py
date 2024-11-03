@@ -1,9 +1,8 @@
 import flask_login
 from flask import url_for, redirect, render_template, session
 
-
 def inicio():
     if 'usuarioLogueado' in session:
-        return redirect(url_for('inicio'))
+        return render_template('inicio.html')
     else:
-        return render_template('inicioSesion.html')
+        return redirect(url_for('inicioSesion_ruta'))

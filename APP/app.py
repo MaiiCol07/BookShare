@@ -27,13 +27,18 @@ def registro_ruta():
 def inicioSesion_ruta():
     return inicioSesion.inicioSesion()
 
-@app.route('/logining')
+@app.route('/logining', methods=['POST'])
 def inicioSesion_proceso():
     return inicioSesion.inicioSesion_proceso()
 
 @app.route('/home')
 def inicio_ruta():
     return inicio.inicio()
+
+@app.route('/logout')
+def cerrarSesion():
+    session.pop('usuarioLogueado', None)
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000)
