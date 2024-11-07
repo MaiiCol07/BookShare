@@ -7,3 +7,4 @@ Jinja2==3.1.4
 MarkupSafe==2.1.5
 mysql-connector-python==8.4.0
 Werkzeug==3.0.3
+yagmail==0.15.293

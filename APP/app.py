@@ -1,6 +1,6 @@
 import flask_login
-from flask import Flask, url_for, redirect, render_template, session, jsonify, flash
-from routes import registro, inicioSesion, inicio
+from flask import Flask, url_for, redirect, render_template, session
+from routes import registro, inicioSesion, inicio, recordarContrasena
 import mysql.connector
 
 app = Flask(__name__)
@@ -23,6 +23,10 @@ def index():
 def registro_ruta():
     return registro.registro()
 
+@app.route('/registering', methods=['POST'])
+def registro_proceso():
+    return registro.registro_proceso()
+
 @app.route('/login')
 def inicioSesion_ruta():
     return inicioSesion.inicioSesion()
@@ -30,6 +34,14 @@ def inicioSesion_ruta():
 @app.route('/logining', methods=['POST'])
 def inicioSesion_proceso():
     return inicioSesion.inicioSesion_proceso()
+
+@app.route('/recoveryPass')
+def recordarContrasena_ruta():
+    return recordarContrasena.recordarContrasena()
+
+@app.route('/recoveringPass', methods=['POST'])
+def recordarContrasena_proceso():
+    return recordarContrasena.recordarContrasena_proceso()
 
 @app.route('/home')
 def inicio_ruta():

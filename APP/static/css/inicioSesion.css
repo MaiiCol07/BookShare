@@ -19,7 +19,6 @@ body {
     padding: 0;
     color: var(--text-color);
     background-image: url("../img/Fondo\ de\ Nieve.jpg");
-    background-attachment: fixed;
     background-size: cover;
     background-position: center;
     --webkit-backdrop-filter: blur(50px);
