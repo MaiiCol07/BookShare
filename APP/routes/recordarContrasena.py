@@ -1,4 +1,5 @@
-import flask_login, smtplib
+import flask_login
+import smtplib
 from flask import Flask, url_for, redirect, render_template, request, jsonify
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -22,13 +23,14 @@ def recordarContrasena():
 
 def recordarContrasena_proceso():
     if not request.method == 'POST':
-        return redirect(url_for('index'))
+        return jsonify({"resultado": "error", "mensaje": "Método no permitido"})
 
     conexion_db()
     correo = request.form['correo_recordar']
 
     if not correo:
-        return "DATOS NO INGRESADOS"
+        return jsonify({"resultado": "error", "mensaje": "Correo no proporcionado"})
+
     try:
         cursor.execute(
             "SELECT nombre_usuario, correo_usuario, contrasena_usuario FROM usuarios WHERE correo_usuario = %s", (correo, ))
@@ -37,11 +39,7 @@ def recordarContrasena_proceso():
 
         if not resultado:
             print("CORREO NO ENCONTRADO. USUARIO NO ENCONTRADO")
-            return "CORREO NO ENCONTRADO. USUARIO NO ENCONTRADO"
-
-        if not correo == resultado[1]:
-            print("CORREO INCORRECTO O NO ENCONTRADO")
-            return "CORREO INCORRECTO O NO ENCONTRADO"
+            return jsonify({"resultado": "error", "mensaje": "Correo no encontrado"})
 
         print(f"DATOS INGREDASOS: \n{resultado}")
 
@@ -139,11 +137,10 @@ def recordarContrasena_proceso():
             servidor.sendmail(emisor, correo, texto)
 
         print("CORREO ENVIADO SATISFACTORIAMENTE")
-        return redirect(url_for('inicioSesion_ruta'))
-
-    except Exception as e:
-        print(f"Error al enviar el correo: {e}")
-        return "Error al enviar el correo"
+        return jsonify({"resultado": "success", "mensaje": "Correo enviado exitosamente"})
+    except:
+        print(f"Error al enviar el correo")
+        return jsonify({"resultado": "error", "mensaje": "Error al enviar el correo"})
     finally:
         if 'mydb' in globals():
             mydb.close()

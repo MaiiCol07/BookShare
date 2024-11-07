@@ -31,19 +31,14 @@
                 <div class="encabezado">
                     <h3>Olvidaste tu contraseña</h3>
                     <p>
-                        Ingresa tu correo electrónico y resibirás un correo con
+                        Ingresa tu correo electrónico y recibirás un correo con
                         tu contraseña de ingreso. No la compartas con nadie
                     </p>
                 </div>
-                <form
-                    action="/recoveringPass"
-                    method="post"
-                    required
-                    autocomplete="off"
-                >
+                <form id="recoveryForm" method="post">
                     <div class="inputLabel">
-                        <label for="correo_recordar"
-                            >Correo electrónico<span class="asterisco">*</span>
+                        <label for="correo_recordar">
+                            Correo electrónico<span class="asterisco">*</span>
                         </label>
                         <input type="email" name="correo_recordar" />
                         <button type="submit">Recordar contraseña</button>
@@ -52,11 +47,15 @@
                 <a href="/login">Iniciar sesión</a>
             </div>
         </main>
+        <div id="notification" class="notification">
+            <span id="notificationMessage"></span>
+            <button class="close-btn" onclick="hideNotification()">X</button>
+        </div>
         <footer></footer>
         <script
             src="https://kit.fontawesome.com/0b856504cf.js"
             crossorigin="anonymous"
         ></script>
-        <script src="../static/js/autenticador.js"></script>
+        <script src="../static/js/recordarContrasena.js"></script>
     </body>
 </html>
