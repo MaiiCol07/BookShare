@@ -49,3 +49,105 @@ header h2 {
     padding: 0;
     text-shadow: var(--text-color) 2px 1px 0;
 }
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: var(--third-color);
+    border-radius: 7px;
+    margin: 4rem auto;
+    padding: 2%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+.encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+}
+
+.encabezado p {
+    margin: 0;
+    font-size: 90%;
+}
+
+.inputLabel {
+    display: flex;
+    flex-direction: column;
+    margin: 3% 0;
+}
+
+label {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 70%;
+}
+
+span {
+    font-size: 90%;
+    color: var(--secondary-color);
+}
+
+input {
+    color: var(--text-color);
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 4px;
+    padding: 2%;
+    text-decoration: none;
+    font-style: none;
+    font-family: "Poppins", sans-serif;
+    box-shadow: inset 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+    font-style: italic;
+}
+
+input:focus {
+    outline: 1px solid var(--primary-color);
+    transition: all 0.7s;
+}
+
+button {
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    margin: 3% auto;
+    cursor: pointer;
+    width: 100%;
+    align-items: center;
+    padding: 2%;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    background-color: var(--primary-color);
+    box-shadow: #2a2a2a37 2px 2px 5px 2px;
+}
+
+button:hover {
+    background-color: #2c7db4;
+    transition: all 0.3s;
+    box-shadow: #2a2a2a37 2px 2px 5px 2px;
+}
+
+a {
+    color: var(--four-color);
+    text-decoration: none;
+    font-size: 80%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+}
+a:hover {
+    color: var(--secondary-color);
+    transition: all 0.2s;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+}

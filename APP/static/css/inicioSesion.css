@@ -72,8 +72,7 @@ p {
     margin: 0;
 }
 
-#parte1 p,
-label {
+#parte1 p {
     font-size: 90%;
 }
 

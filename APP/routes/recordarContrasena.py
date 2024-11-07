@@ -1,5 +1,7 @@
-import flask_login
-from flask import Flask, url_for, redirect, render_template, session, request
+import flask_login, smtplib
+from flask import Flask, url_for, redirect, render_template, request, jsonify
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 import mysql.connector
 import yagmail
 
@@ -46,45 +48,98 @@ def recordarContrasena_proceso():
         nombreUsuario = resultado[0]
         contrasena = resultado[2]
 
-        yag = yagmail.SMTP({
-            'bookshare.attention@gmail.com': 'BookShare'
-        }, 'ipal bhid isoq ysmc')
-
+        emisor = "bookshare.attention@gmail.com"
+        contrasenaEmisor = "ipal bhid isoq ysmc"
         contenido = f"""
-        Estimado/a {nombreUsuario}:
+        <html>
+        <head>
+            <style>
+                body {{
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }}
+                .header {{
+                    color: #2C7DB4;
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                }}
+                .password {{
+                    background: #f5f5f5;
+                    padding: 10px;
+                    margin: 15px 0;
+                    border-radius: 4px;
+                }}
+                .steps {{
+                    margin: 15px 0;
+                }}
+                .footer {{
+                    font-size: 12px;
+                    color: #666;
+                    border-top: 1px solid #eee;
+                    margin-top: 30px;
+                    padding-top: 15px;
+                }}
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                Estimado/a {nombreUsuario}:
+            </div>
 
-        Hemos recibido una solicitud para recuperar tu contraseña en BookShare.
-        A continuación, te proporcionamos tus credenciales de acceso:
+            <p>Hemos recibido una solicitud para recuperar tu contraseña en BookShare.</p>
+            <p>A continuación, te proporcionamos tus credenciales de acceso:</p>
 
-        Tu contraseña temporal es: {contrasena}
+            <div class="password">
+                <strong>Tu contraseña actual es:</strong> {contrasena}
+            </div>
 
-        Por razones de seguridad, te recomendamos que cambies esta contraseña inmediatamente después de iniciar sesión en tu cuenta.
+            <p><strong>Por razones de seguridad</strong>, te recomendamos que cambies esta contraseña inmediatamente después de iniciar sesión en tu cuenta.</p>
 
-        Para hacerlo, sigue estos pasos:
-        1. Ingresa a BookShare con tu contraseña temporal
-        2. Ve a "Mi Perfil"
-        3. Selecciona la opción "Cambiar Contraseña"
-        4. Ingresa una nueva contraseña segura
+            <div class="steps">
+                <p>Para hacerlo, sigue estos pasos:</p>
+                <ol>
+                    <li>Ingresa a BookShare con tu contraseña temporal</li>
+                    <li>Ve a "Mi Perfil"</li>
+                    <li>Selecciona la opción "Cambiar Contraseña"</li>
+                    <li>Ingresa una nueva contraseña segura</li>
+                </ol>
+            </div>
 
-        Si tú no solicitaste este cambio de contraseña, por favor contacta inmediatamente con nuestro equipo de soporte.
+            <p>Si tú no solicitaste este cambio de contraseña, por favor contacta inmediatamente con nuestro equipo de soporte.</p>
 
-        ¿Necesitas ayuda adicional? Estamos aquí para asistirte.
+            <p>¿Necesitas ayuda adicional? Estamos aquí para asistirte.</p>
 
-        Saludos,
-        El equipo de BookShare
+            <p>Saludos,<br>
+            El equipo de BookShare</p>
 
-        Nota: Este es un correo automático, por favor no respondas a este mensaje.
+            <div class="footer">
+                <em>Nota: Este es un correo automático, por favor no respondas a este mensaje. Si necesitas asistencia, abre una nueva conversación con nuestro equipo de soporte.</em>
+            </div>
+        </body>
+        </html>
         """
-
         asunto = 'Recuperación de Contraseña - BookShare'
 
-        yag.send(
-            to=correo,
-            subject='Recuperación de Contraseña - BookShare',
-            contents=contenido
-        )
+        mensaje = MIMEMultipart()
+        mensaje['from'] = emisor
+        mensaje['to'] = correo
+        mensaje['subject'] = asunto
+
+        mensaje.attach(MIMEText(contenido, 'html'))
+
+        with smtplib.SMTP('smtp.gmail.com', 587) as servidor:
+            servidor.starttls()
+            servidor.login(emisor, contrasenaEmisor)
+            texto = mensaje.as_string()
+            servidor.sendmail(emisor, correo, texto)
+
         print("CORREO ENVIADO SATISFACTORIAMENTE")
-        return redirect(url_for('iniciarSesion_ruta'))
+        return redirect(url_for('inicioSesion_ruta'))
 
     except Exception as e:
         print(f"Error al enviar el correo: {e}")

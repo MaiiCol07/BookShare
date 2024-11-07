@@ -27,23 +27,30 @@
             <h2 onclick="window.location.href='/'">BookShare</h2>
         </header>
         <main>
-            <h1>Olvidaste tu contraseña</h1>
-            <p>
-                Ingresa tu correo electrónico y resibirás un correo con tu
-                contraseña de ingreso. No la compartas con nadie
-            </p>
-            <form
-                action="/recoveringPass"
-                method="post"
-                required
-                autocomplete="off"
-            >
-                <label for="correo_recordar"
-                    >Correo Electrónico<span class="asterisco">*</span>
-                </label>
-                <input type="email" name="correo_recordar" />
-                <button type="submit">Recordar contraseña</button>
-            </form>
+            <div class="formulario">
+                <div class="encabezado">
+                    <h3>Olvidaste tu contraseña</h3>
+                    <p>
+                        Ingresa tu correo electrónico y resibirás un correo con
+                        tu contraseña de ingreso. No la compartas con nadie
+                    </p>
+                </div>
+                <form
+                    action="/recoveringPass"
+                    method="post"
+                    required
+                    autocomplete="off"
+                >
+                    <div class="inputLabel">
+                        <label for="correo_recordar"
+                            >Correo electrónico<span class="asterisco">*</span>
+                        </label>
+                        <input type="email" name="correo_recordar" />
+                        <button type="submit">Recordar contraseña</button>
+                    </div>
+                </form>
+                <a href="/login">Iniciar sesión</a>
+            </div>
         </main>
         <footer></footer>
         <script
