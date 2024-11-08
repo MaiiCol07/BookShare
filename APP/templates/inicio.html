@@ -3,22 +3,26 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../static/css/inicio.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/inicio.css')}}">
         <title>Inicio - BookShare</title>
     </head>
     <body>
         <header>
             <img
                 onclick="window.location.href='/'"
-                src="../static/img/Isotipo 1 - Logo.png"
+                src="{{url_for('static', filename='img/material/Isotipo 1 - Logo.png')}}"
                 alt="BookShare"
             />
             <h2 onclick="window.location.href='/'">BookShare</h2>
+            <h2>Inicio</h2>
+            <div>
+                
+            </div>
         </header>
         <main>
             <div class="paneles panel1">
                 <dvi class="encabezado">
-                    <i
+                    
                 </dvi>
             </div>
             <div class="paneles panel2"></div>

@@ -8,10 +8,10 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
-        <link rel="stylesheet" href="./static/css/index.css" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
         <link
             rel="icon"
-            href="./static/img/Isotipo 1 - Icono.ico"
+            href="{{url_for('static', filename='img/material/Isotipo 1 - Icono.ico')}}"
             type="image/x-icon"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,7 @@
         <header>
             <div id="headerPart1">
                 <img
-                    src="./static/img/Isotipo 1 - Logo.png"
+                    src="{{ url_for('static', filename='img/material/Isotipo 1 - Logo.png') }}"
                     alt="BookShare"
                     id="logo"
                 />
@@ -46,7 +46,7 @@
                 <h1>BookShare</h1>
                 <p>
                     Intercambia libros con otros de forma fácil y económica.
-                    Únete a nuestra comunidad y comparte tus libros, da a ti y
+                    Únete a la comunidad y comparte tus libros, date a ti y como a
                     ellos una segunda oportunidad.
                 </p>
                 <a

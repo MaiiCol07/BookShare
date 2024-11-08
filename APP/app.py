@@ -1,6 +1,6 @@
 import flask_login
 from flask import Flask, url_for, redirect, render_template, session, request, jsonify
-from routes import registro, inicioSesion, inicio, recordarContrasena
+from routes import registro, inicioSesion, inicio, recordarContrasena, perfil
 import mysql.connector
 
 app = Flask(__name__)
@@ -55,6 +55,10 @@ def recordarContrasena_proceso():
 @app.route('/resultRecoveryPass/<resultado>')
 def resultadoRecordarContrasena_ruta(resultado):
     return jsonify({"resultado": resultado}), 200, {'Content-Type': 'application/json'}
+
+@app.route('/profile')
+def perfil_ruta():
+    return perfil.perfil()
 
 
 @app.route('/home')

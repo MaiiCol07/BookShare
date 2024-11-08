@@ -4,10 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>BookShare - Inicio de sesión</title>
-        <link rel="stylesheet" href="../static/css/inicioSesion.css" />
+        <link rel="stylesheet" href="{{url_for('static', filename='css/inicioSesion.css')}}" />
         <link
             rel="icon"
-            href="./static/img/Isotipo 1 - Icono.ico"
+            href="./static/img/material/Isotipo 1 - Icono.ico"
             type="image/x-icon"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,7 @@
         <header>
             <img
                 onclick="window.location.href='/'"
-                src="../static/img/Isotipo 1 - Logo.png"
+                src="../static/img/material/Isotipo 1 - Logo.png"
                 alt="BookShare"
             />
             <h2 onclick="window.location.href='/'">BookShare</h2>
@@ -67,10 +67,11 @@
                 </div>
                 <div id="imagenEmojis">
                     <h3>¡Comparte y descubre!</h3>
-                    <img src="../static/img/Emojis.png" alt="Emojis" />
+                    <img src="../static/img/material/Emojis.png" alt="Emojis" />
                 </div>
             </div>
         </main>
+        <footer></footer>
         <script
             src="https://kit.fontawesome.com/0b856504cf.js"
             crossorigin="anonymous"

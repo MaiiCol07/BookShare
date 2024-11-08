@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/perfil.css') }}"
+        />
+        <link
+            rel="icon"
+            href="{{ url_for('static', filename='img/material/Isotipo 1 - Icono.ico') }}"
+            type="image/x-icon"
+        />
+        <title>BookShare - Perfil</title>
+    </head>
+    <body>
+        <header>
+            <div id="logoContainer">
+                <img
+                    src="{{ url_for('static', filename='img/material/Isotipo 1 - Logo.png') }}"
+                    alt="BookShare"
+                    id="logo"
+                />
+                <h2>BookShare</h2>
+            </div>
+            <div class="interacionContainer">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-home"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                </svg>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-bell"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"
+                    />
+                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                </svg>
+                <div class="info_usuario">
+                    {% if usuario.foto %}
+                    <img
+                        src="data:image/jpeg;base64,{{ usuario.foto }}"
+                        alt="Foto de perfil"
+                        class="foto_perfil"
+                    />
+                    {% else %}
+                    <img
+                        src="{{ url_for('static', filename='img/usuarios/Usuario_default.jpg') }}"
+                        alt="Foto de perfil por defecto"
+                        class="nombre_perfil"
+                    />
+                    {% endif %}
+                    <p>{{ usuario.nombre + ' ' + usuario.apellido }}</p>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"
+                    >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M6 9l6 6l6 -6" />
+                    </svg>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>

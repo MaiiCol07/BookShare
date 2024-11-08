@@ -4,10 +4,10 @@
     --primary-color: #3777ff;
     --secondary-color: #ffbe86;
     --third-color: #8691accb;
-    --four-color: #ffb5c2;
+    --text-secondary-color: #ffb5c2;
     --text-color: #2a2a2a;
-    --background-color: #ffe9ce;
-    --background-color-secundary: #2a2a2a;
+    --text-secondary-color: #ffe9ce;
+    --text-secondary-color-secundary: #2a2a2a;
 }
 
 * {
@@ -18,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     color: var(--text-color);
-    background-image: url("../img/Fondo\ de\ Nieve.jpg");
+    background-image: url("../img/material/Fondo\ de\ Nieve.jpg");
     background-size: cover;
     background-position: center;
     --webkit-backdrop-filter: blur(50px);

@@ -4,11 +4,10 @@
 :root {
     --primary-color: #3777FF;
     --secondary-color: #FFBE86;
-    --third-color: #8691accb;
-    --four-color: #FFB5C2;
-    --text-color: #2a2a2a;
-    --background-color: #FFE9CE;
-    --background-color-secundary: #2a2a2a;
+    --text-color: rgb(29, 27, 27);
+    --text-secondary-color: #FFE9CE;
+    --third-color: #9ea8c2;
+    --text-secondary-color-secundary: #2a2a2a;
 }
 
 * {
@@ -19,12 +18,12 @@ body {
     margin: 0;
     padding: 0;
     color: var(--text-color);
-    background-image: url('../img/Fondo\ de\ Nieve.jpg');
+    background-image: url("../img/material/Lago\ -\ Fondo.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    --webkit-backdrop-filter: blur(50px);
-    backdrop-filter: blur(50px);
+    --webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     min-height: 100%;
 }
 
@@ -39,19 +38,20 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
 header #logo {
     width: 30px;
     padding: 0;
-    margin: 0 10px 0 0;
+    margin: 0;
     cursor: pointer;
 }
 
 header h2 {
     cursor: pointer;
     font-family: "Lobster", sans-serif !important;
-    margin: 0 0 0 10px;
+    margin: 0;
     padding: 0;
     text-shadow: var(--text-color) 2px 1px 0;
     color: var(--primary-color);
@@ -69,7 +69,7 @@ header h2 {
 
 .login-button {
     background-color: var(--primary-color);
-    color: var(--background-color);
+    color: var(--text-color);
     transition: all 0.5s;
 }
 
@@ -93,7 +93,8 @@ main {
 }
 
 .div_top {
-    color: var(--text-color);
+    color: rgb(18, 18, 18);
+    text-shadow: var(--text-secondary-color) 1px 1px 5px;
     padding: 60px 80px;
     border-radius: 10px;
     transition: all 0.5s;
@@ -105,9 +106,8 @@ main {
     font-weight: 700;
     margin: 0;
     font-family: "Lobster", sans-serif !important;
-    text-shadow: var(--secondary-color) 3px 2px 0;
+    text-shadow: var(--text-color) 3px 2px 0;
 }
-
 
 .tarjetas {
     display: grid;
@@ -116,7 +116,7 @@ main {
 }
 
 .tarjeta {
-    background-color: #8691accb;
+    background-color: #8691ac;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -144,8 +144,8 @@ main {
 .cta-button {
     display: inline-block;
     background-color: var(--primary-color);
-    color: var(--background-color);
-    text-shadow: var(--secondary-color)  2px 1px 3px;
+    text-shadow: none;
+    color: var(--text-color);
     text-decoration: none;
     padding: 10px 20px;
     margin-top: 10px;
